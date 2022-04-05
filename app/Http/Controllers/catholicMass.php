@@ -21,17 +21,39 @@ class catholicMass extends Controller
      $now = Carbon::now();
      $nowdate = $now->addDay(0)->format('Y-m-d');
      $date = $now->addDay(7)->format('Y-m-d');
-     //single
-    //$data =  massreading::where(['dailydate'=>$date])->first();
-    //return $data;
-    // $this->mass->all();
-    //single
      $group =  $this->mass->whereBetween('dailydate', [$nowdate, $date])->get();
      return  response()->json([
          'success'=>$group,
          'code'=>200
      ]);
    }
+
+   public function searchreading(Request $request){
+    $validator = Validator::make($request->all(),[
+        'todaydate'=>'required|string',
+       ]);
+       if($validator->fails()){
+        $errors = $validator->errors()->getMessages();
+        return ['code'=>'1500', 'error'=>$errors];
+       }
+    $nowdate = Carbon::createFromFormat('d/m/Y', $request->todaydate)->format('Y-m-d');
+     $newdate = Carbon::parse($nowdate);
+     $presentdate = $newdate->addDay(0)->format('Y-m-d');
+     $date = $newdate->addDay(7)->format('Y-m-d');
+      $group =  $this->mass->whereBetween('dailydate', [$presentdate, $date])->get();
+      return response()->json([
+          "success"=>$group,
+          'code'=>200
+      ]);
+    }
+
+    public function lastrow(){
+       $data = $this->mass->orderBy('id', 'desc')->get()->take(1);
+       return response()->json([
+           "success"=>$data,
+           "code"=>200
+       ]);
+    }
 
     public function read($read){
      $newdate =  Carbon::parse($read)->format('Y-m-d');
@@ -83,15 +105,16 @@ class catholicMass extends Controller
         $errors = $validator->errors()->getMessages();
         return ['code'=>'1500', 'error'=>$errors];
        }
-        $donate->create([
-            'fullname'=>$request->fullname,
-            'email'=>$request->email,
-            'amount'=>$request->amount,
-            'reason'=>$request->reason,
-            'explain'=>$request->explain,
-            'message'=>$request->message,
-            'referencecode'=>$request->referencecode
-        ]);
+        // $donate->create([
+        //     'fullname'=>$request->fullname,
+        //     'email'=>$request->email,
+        //     'amount'=>$request->amount,
+        //     'reason'=>$request->reason,
+        //     'explain'=>$request->explain,
+        //     'message'=>$request->message,
+        //     'referencecode'=>$request->referencecode
+        // ]);
+        $donate->create($request->all());
        return ['success'=>'we have received the donation thank you for you support'];
    }
 }

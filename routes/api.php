@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('reading', [catholicMass::class, 'reading']);
-Route::get('read/{read}', [catholicMass::class, 'read']);
-Route::get("paystack_verify/{ref}",[catholicMass::class, 'paystack_verify']);
-Route::post("paymentdata",[catholicMass::class,'paymentdata']);
+Route::get('/reading', [catholicMass::class, 'reading']);
+Route::get('/read/{read}', [catholicMass::class, 'read']);
+Route::get("/paystack_verify/{ref}",[catholicMass::class, 'paystack_verify']);
+Route::post("/paymentdata",[catholicMass::class,'paymentdata']);
+Route::post("/searchreading", [catholicMass::class, "searchreading"]);
+Route::get("/lastrow", [catholicMass::class,"lastrow"]);
 
 Route::middleware('auth:sanctum')->group( function(){
 //

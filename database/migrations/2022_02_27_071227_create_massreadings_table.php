@@ -24,6 +24,8 @@ return new class extends Migration
             $table->longText('secondbody')->nullable();
             $table->tinyText('alleluiaheading')->nullable();
             $table->longText('alleluiabody')->nullable();
+            $table->tinyText('gospelaccheading')->nullable();
+            $table->longText('gospelaccbody')->nullable();
             $table->tinyText('gospelheading')->nullable();
              $table->longText('gospelbody')->nullable();
              $table->date('dailydate')->nullable();

@@ -22,6 +22,7 @@ Route::get('/reading', [catholicMass::class, 'reading']);
 Route::get('/read/{read}', [catholicMass::class, 'read']);
 Route::get("/paystack_verify/{ref}",[catholicMass::class, 'paystack_verify']);
 Route::post("/paymentdata",[catholicMass::class,'paymentdata']);
+Route::post("/insertreading", [catholicMass::class, 'insertreading']);
 Route::post("/searchreading", [catholicMass::class, "searchreading"]);
 Route::get("/lastrow", [catholicMass::class,"lastrow"]);
 

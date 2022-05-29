@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\insertReading;
 use App\Models\Donation;
 use App\Models\massreading;
 use Carbon\Carbon;
@@ -91,6 +92,7 @@ class catholicMass extends Controller
 
 }
 
+
    public function paymentdata(Donation $donate, Request $request){
     $validator = Validator::make($request->all(),[
         "fullname" => 'required|regex:/^[a-zA-Z ]*$/',
@@ -116,5 +118,25 @@ class catholicMass extends Controller
         // ]);
         $donate->create($request->all());
        return ['success'=>'we have received the donation thank you for you support'];
+   }
+
+   public function insertreading(massreading $massreading, insertReading $request){
+    $massreading->create([
+    'firstheading'=>$request->firstheading,
+    'firstbody'=>$request->firstbody,
+    'responsorialheading'=>$request->responsorialheading,
+    'responsorialresponse'=>$request->responsorialresponse,
+    'responsorialbody'=>$request->responsorialbody,
+    'secondheading'=>$request->secondheading,
+    'secondbody'=>$request->secondbody,
+    'alleluiaheading'=>$request->alleluiaheading,
+    'alleluiabody'=>$request->alleluiabody,
+    'gospelaccheading'=>$request->gospelaccheading,
+    'gospelaccbody'=>$request->gospelaccbody,
+    'gospelheading'=>$request->gospelheading,
+     'gospelbody'=>$request->gospelbody,
+     'dailydate'=>$request->dailydate,
+    ]);
+    return response()->json(['success'=>'successful inserted mass reading']);
    }
 }

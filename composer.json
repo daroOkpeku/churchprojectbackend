@@ -10,7 +10,8 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
-        "nesbot/carbon": "^2.57"
+        "nesbot/carbon": "^2.57",
+        "stripe/stripe-php": "^8.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

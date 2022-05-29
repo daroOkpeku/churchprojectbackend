@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class massreading extends Model
 {
+
     use HasFactory;
     protected $fillable = [
           'firstheading',
@@ -18,6 +19,8 @@ class massreading extends Model
            'secondbody',
            'alleluiaheading',
            'alleluiabody',
+           'gospelaccheading',
+           'gospelaccbody',
            'gospelheading',
             'gospelbody',
             'dailydate'

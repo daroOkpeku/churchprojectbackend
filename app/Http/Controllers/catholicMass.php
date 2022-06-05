@@ -120,23 +120,24 @@ class catholicMass extends Controller
        return ['success'=>'we have received the donation thank you for you support'];
    }
 
-   public function insertreading(massreading $massreading, insertReading $request){
-    $massreading->create([
-    'firstheading'=>$request->firstheading,
-    'firstbody'=>$request->firstbody,
-    'responsorialheading'=>$request->responsorialheading,
-    'responsorialresponse'=>$request->responsorialresponse,
-    'responsorialbody'=>$request->responsorialbody,
-    'secondheading'=>$request->secondheading,
-    'secondbody'=>$request->secondbody,
-    'alleluiaheading'=>$request->alleluiaheading,
-    'alleluiabody'=>$request->alleluiabody,
-    'gospelaccheading'=>$request->gospelaccheading,
-    'gospelaccbody'=>$request->gospelaccbody,
-    'gospelheading'=>$request->gospelheading,
-     'gospelbody'=>$request->gospelbody,
-     'dailydate'=>$request->dailydate,
-    ]);
+   public function insertreading( insertReading $request){
+       $massreading =    new  massreading();
+    $massreading->firstheading = $request->firstheading;
+    $massreading->firstbody= $request->firstbody;
+    $massreading->responsorialheading= $request->responsorialheading;
+    $massreading->responsorialresponse = $request->responsorialresponse;
+    $massreading->responsorialbody = $request->responsorialbody;
+    $massreading->secondheading = $request->secondheading;
+    $massreading->secondbody = $request->secondbody;
+     $massreading->alleluiaheading = $request->alleluiaheading;
+    $massreading->alleluiabody = $request->alleluiabody;
+    $massreading->gospelaccheading = $request->gospelaccheading;
+    $massreading->gospelaccbody = $request->gospelaccbody;
+   $massreading->gospelheading = $request->gospelheading;
+    $massreading->gospelbody = $request->gospelbody;
+     $massreading->dailydate = $request->dailydate;
+     $massreading->save();
+
     return response()->json(['success'=>'successful inserted mass reading']);
    }
 }

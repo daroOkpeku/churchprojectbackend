@@ -207,20 +207,20 @@ $ch = curl_init();
      }
 
 
-    public function paypaloath(){
-        // dd($this->explodefun());
+    // public function paypaloath(){
+    //     // dd($this->explodefun());
 
-         $data = $this->explodefun();
-        // return $data;
-         //third
-        return redirect($data['url']);
-        //  paypal::create([
-        // 'access_token'=>$data->access_token,
-        // 'token_type'=>$data->token_type,
-        // 'app_id'=>$data->app_id,
-        // 'expires_in'=>$data->expires_in,
-        //  ]);
+    //      $data = $this->explodefun();
+    //     // return $data;
+    //      //third
+    //     return redirect($data['url']);
+    //     //  paypal::create([
+    //     // 'access_token'=>$data->access_token,
+    //     // 'token_type'=>$data->token_type,
+    //     // 'app_id'=>$data->app_id,
+    //     // 'expires_in'=>$data->expires_in,
+    //     //  ]);
 
-        return view('index');
-    }
+    //     return view('index');
+    // }
 }

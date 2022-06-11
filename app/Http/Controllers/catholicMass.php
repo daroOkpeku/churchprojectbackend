@@ -41,7 +41,7 @@ class catholicMass extends Controller
      $newdate = Carbon::parse($nowdate);
      $presentdate = $newdate->addDay(0)->format('Y-m-d');
      $date = $newdate->addDay(7)->format('Y-m-d');
-      $group =  $this->mass->whereBetween('dailydate', [$presentdate, $date])->orderBy('id', 'desc')->get();
+      $group =  $this->mass->whereBetween('dailydate', [$presentdate, $date])->orderBy('id', 'asc')->get();
       return response()->json([
           "success"=>$group,
           'code'=>200

@@ -10,7 +10,7 @@ class massreading extends Model
 
     use HasFactory;
     protected $fillable = [
-          'firstheading',
+            'firstheading',
            'firstbody',
            'responsorialheading',
            'responsorialresponse',

@@ -107,17 +107,17 @@ class catholicMass extends Controller
         $errors = $validator->errors()->getMessages();
         return ['code'=>'1500', 'error'=>$errors];
        }
-        // $donate->create([
-        //     'fullname'=>$request->fullname,
-        //     'email'=>$request->email,
-        //     'amount'=>$request->amount,
-        //     'reason'=>$request->reason,
-        //     'explain'=>$request->explain,
-        //     'message'=>$request->message,
-        //     'referencecode'=>$request->referencecode
-        // ]);
+        $donate->create([
+            'fullname'=>$request->fullname,
+            'email'=>$request->email,
+            'amount'=>$request->amount,
+            'reason'=>$request->reason,
+            'explain'=>$request->explain,
+            'message'=>$request->message,
+            'referencecode'=>$request->referencecode
+        ]);
         $donate->create($request->all());
-       return ['success'=>'we have received the donation thank you for you support'];
+       return ['success'=>'we have received the donation thank you for your support'];
    }
 
    public function insertreading( insertReading $request){

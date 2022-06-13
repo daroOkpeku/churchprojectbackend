@@ -8,7 +8,9 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Stripe\StripeClient;
-
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -223,4 +225,19 @@ $ch = curl_init();
 
     //     return view('index');
     // }
+
+    public function paginate($items, $perPage = 4, $page = null){
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $total = count($items);
+        $currentpage = $page;
+        $offset = ($currentpage * $perPage) - $perPage ;
+        $itemstoshow = array_slice($items , $offset , $perPage);
+        return new LengthAwarePaginator($itemstoshow ,$total ,$perPage);
+    }
+
+    public function sendimage($data){
+        $uploadedFileUrl = Cloudinary::uploadFile($data->getRealPath());
+        $answer = $uploadedFileUrl->getSecurePath();
+        return $answer;
+    }
 }

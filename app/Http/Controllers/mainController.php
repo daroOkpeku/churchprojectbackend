@@ -6,6 +6,7 @@ use App\Http\Requests\Authrequest;
 use App\Http\Requests\loginrequest;
 use App\Http\Resources\donateresource;
 use App\Models\Donation;
+use App\Models\EventContent;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,5 +54,19 @@ class mainController extends Controller
      }
 
 
+     public function eventplace(Request $request, EventContent $eventContent){
+
+        $answer = $this->sendimage($request->imgone);
+        $second = $this->sendimage($request->imgtwo);
+       $eventContent->create([
+        'titleevent'=>$request->titleevent,
+        'imgone'=>$answer,
+        'imgtwo'=>$second ,
+        'eventdetailone'=>$request->eventdetailone,
+        'eventdetailtwo'=>$request->eventdetailtwo
+       ]);
+       return response()->json(['success'=>'you have inserted an event']);
+
+     }
 
 }

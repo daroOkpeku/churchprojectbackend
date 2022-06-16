@@ -70,9 +70,9 @@ class mainController extends Controller
      }
 
 
-     public function search_donation(Request $request){
-        if ($request->has("search")) {
-            $data = Donation::search($request->get("search"))->take(7)->get();
+     public function search_donation($search){
+        if ($search) {
+            $data = Donation::search($search)->take(7)->get();
              $more =  donateresource::collection($data)->resolve();
              return response()->json($more);
         }

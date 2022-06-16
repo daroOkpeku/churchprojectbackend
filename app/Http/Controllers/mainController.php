@@ -19,7 +19,7 @@ class mainController extends Controller
          'name'=>$request->fullname,
          'email'=>$request->email,
          'password'=>Hash::make($request->password),
-         'is_admin'=>1
+         'is_admin'=>true
          ]);
 
          return response()->json([
@@ -67,6 +67,15 @@ class mainController extends Controller
        ]);
        return response()->json(['success'=>'you have inserted an event']);
 
+     }
+
+
+     public function search_donation(Request $request){
+        if ($request->has("search")) {
+            $data = Donation::search($request->get("search"))->take(7)->get();
+             $more =  donateresource::collection($data)->resolve();
+             return response()->json($more);
+        }
      }
 
 }

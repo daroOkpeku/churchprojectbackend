@@ -33,4 +33,5 @@ Route::get("/lastrow",[catholicMass::class,"lastrow"]);
 Route::middleware('auth:sanctum')->group( function(){
 Route::get('/donation_made/{page}', [mainController::class, 'donation_made']);
 Route::post('/eventplace', [mainController::class, 'eventplace']);
+Route::get('/search_donation', [mainController::class, 'search_donation']);
 });

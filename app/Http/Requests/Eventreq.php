@@ -26,7 +26,7 @@ class Eventreq extends FormRequest
         return [
             'titleevent'=>'required|regex:/^[a-zA-Z0-9 ]*$/',
             'imgone'=>'required|image',
-            'imgtwo'=>'required|image',
+            // 'imgtwo'=>'required|image',
             'eventdetailone'=>'required|regex:/^[a-zA-Z0-9 ]*$/',
             'eventdetailtwo'=>'required|regex:/^[a-zA-Z0-9 ]*$/'
         ];

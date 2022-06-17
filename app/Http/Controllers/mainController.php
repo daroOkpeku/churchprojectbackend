@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Authrequest;
+use App\Http\Requests\Eventreq;
 use App\Http\Requests\loginrequest;
 use App\Http\Resources\donateresource;
 use App\Models\Donation;
@@ -54,14 +55,14 @@ class mainController extends Controller
      }
 
 
-     public function eventplace(Request $request, EventContent $eventContent){
-
+     public function eventplace(Eventreq $request, EventContent $eventContent){
+        $request->validated();
         $answer = $this->sendimage($request->imgone);
-        $second = $this->sendimage($request->imgtwo);
+       // $second = $this->sendimage($request->imgtwo);
        $eventContent->create([
         'titleevent'=>$request->titleevent,
         'imgone'=>$answer,
-        'imgtwo'=>$second ,
+        'imgtwo'=>$answer ,
         'eventdetailone'=>$request->eventdetailone,
         'eventdetailtwo'=>$request->eventdetailtwo
        ]);

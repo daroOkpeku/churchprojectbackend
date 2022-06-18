@@ -24,7 +24,7 @@ class Eventreq extends FormRequest
     public function rules()
     {
         return [
-            'titleevent'=>'required|regex:/^[a-zA-Z0-9 ]*$/',
+            'titleevent'=>'required|regex:/^[a-zA-Z0-9., ]*$/',
             'imgone'=>'required|image',
             // 'imgtwo'=>'required|image',
             'eventdetailone'=>'required',

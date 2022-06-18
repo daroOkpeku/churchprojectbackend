@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\contactEvent;
 use App\Http\Requests\Authrequest;
+use App\Http\Requests\contactrequest;
 use App\Http\Requests\Eventreq;
 use App\Http\Requests\loginrequest;
 use App\Http\Resources\donateresource;
@@ -101,7 +102,7 @@ class mainController extends Controller
       return response()->json(['success'=>'logged out']);
     }
 
-    public function contact(contact $contact, Request $request){
+    public function contact(contact $contact, contactrequest $request){
       $contact->create([
            'fullname'=>$request->fullname,
             'email'=>$request->email,

@@ -64,7 +64,8 @@ class mainController extends Controller
         'imgone'=>$answer,
         'imgtwo'=>$answer ,
         'eventdetailone'=>$request->eventdetailone,
-        'eventdetailtwo'=>$request->eventdetailtwo
+        'eventdetailtwo'=>$request->eventdetailtwo,
+        'dailydate'=>$request->dailydate
        ]);
        return response()->json(['success'=>'you have inserted an event']);
 

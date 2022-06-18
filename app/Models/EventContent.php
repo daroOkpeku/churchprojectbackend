@@ -14,6 +14,7 @@ class EventContent extends Model
         'imgone',
         'imgtwo',
         'eventdetailone',
-        'eventdetailtwo'
+        'eventdetailtwo',
+        'dailydate'
     ];
 }

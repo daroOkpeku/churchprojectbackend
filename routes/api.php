@@ -30,7 +30,7 @@ Route::post("/searchreading", [catholicMass::class, "searchreading"]);
 Route::get("/lastrow",[catholicMass::class,"lastrow"]);
 Route::get("/eventdetails/{page}", [mainController::class, "eventdetails"]);
 Route::get("/eventfind/{id}", [mainController::class, "eventfind"]);
-
+Route::post("/contact", [mainController::class, "contact"]);
 Route::middleware('auth:sanctum')->group( function(){
 Route::get('/donation_made/{page}', [mainController::class, 'donation_made']);
 Route::post('/eventplace', [mainController::class, 'eventplace']);

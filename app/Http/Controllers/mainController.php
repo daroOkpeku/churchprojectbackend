@@ -88,4 +88,9 @@ class mainController extends Controller
      return response()->json(['success'=>$info]);
      }
 
+     public function eventfind($id, EventContent $eventContent){
+       $data = $eventContent->find($id);
+       return response()->json(['success'=>$data]);
+     }
+
 }

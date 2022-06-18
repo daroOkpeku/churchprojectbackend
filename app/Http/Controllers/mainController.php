@@ -57,9 +57,9 @@ class mainController extends Controller
 
      public function eventplace(Eventreq $request, EventContent $eventContent){
 
-       // $answer = $this->sendimage($request->imgone);
+       $answer = $this->sendimage($request->imgone);
        // $second = $this->sendimage($request->imgtwo);
-       dd($request->imgone);
+       dd($answer);
     //    $eventContent->create([
     //     'titleevent'=>$request->titleevent,
     //     'imgone'=>$answer,

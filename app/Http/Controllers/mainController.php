@@ -82,7 +82,7 @@ class mainController extends Controller
 
 
      public function eventdetails($page, EventContent $eventContent){
-     $data = $eventContent->get()->orderBy('id', 'asc');
+     $data = $eventContent->get();
      $answer = $page?$page:1;
      $info =  $this->paginate($data, 10, $answer);
      return response()->json(['success'=>$info]);

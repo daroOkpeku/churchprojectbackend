@@ -27,8 +27,8 @@ class Eventreq extends FormRequest
             'titleevent'=>'required|regex:/^[a-zA-Z0-9 ]*$/',
             'imgone'=>'required|image',
             // 'imgtwo'=>'required|image',
-            'eventdetailone'=>'required|regex:/^[a-zA-Z0-9 ]*$/',
-            'eventdetailtwo'=>'required|regex:/^[a-zA-Z0-9 ]*$/'
+            'eventdetailone'=>'required|alpha',
+            'eventdetailtwo'=>'required|alpha'
         ];
     }
 }

@@ -59,7 +59,6 @@ class mainController extends Controller
 
        $answer = $this->sendimage($request->imgone);
        // $second = $this->sendimage($request->imgtwo);
-       dd($answer);
        $eventContent->create([
         'titleevent'=>$request->titleevent,
         'imgone'=>$answer,

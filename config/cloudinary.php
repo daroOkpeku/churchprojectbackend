@@ -19,7 +19,7 @@ return [
     |
     |
     */
-    'notification_url' => env('CLOUDINARY_NOTIFICATION_URL'),
+    'notification_url' => "cloudinary://365215113132216:Qm56khlJMXE0wKZQZAbc8vgr9Hg@okpeku",
 
 
     /*
@@ -32,11 +32,11 @@ return [
     |
     |
     */
-    'cloud_url' => env('CLOUDINARY_URL'),
+    'cloud_url' =>"cloudinary://365215113132216:Qm56khlJMXE0wKZQZAbc8vgr9Hg@okpeku",
 
     /**
      * Upload Preset From Cloudinary Dashboard
      *
      */
-    'upload_preset' => env('CLOUDINARY_UPLOAD_PRESET')
+    'upload_preset' => "Ighodaro"
 ];

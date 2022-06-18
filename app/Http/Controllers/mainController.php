@@ -93,4 +93,10 @@ class mainController extends Controller
        return response()->json(['success'=>$data]);
      }
 
+
+     public function logout(){
+      auth()->user()->tokens()->delete();
+      return response()->json(['success'=>'logged out']);
+    }
+
 }

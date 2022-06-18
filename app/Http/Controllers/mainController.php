@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\contactEvent;
 use App\Http\Requests\Authrequest;
 use App\Http\Requests\Eventreq;
 use App\Http\Requests\loginrequest;
 use App\Http\Resources\donateresource;
+use App\Models\contact;
 use App\Models\Donation;
 use App\Models\EventContent;
 use App\Models\User;
@@ -97,6 +99,17 @@ class mainController extends Controller
      public function logout(){
       auth()->user()->tokens()->delete();
       return response()->json(['success'=>'logged out']);
+    }
+
+    public function contact(contact $contact, Request $request){
+      $contact->create([
+           'fullname'=>$request->fullname,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+           'message'=>$request->message,
+      ]);
+       event(new contactEvent($request->fullname, $request->email, $request->subject, $request->message ));
+       return response()->json(['success'=>'you message have being sent']);
     }
 
 }

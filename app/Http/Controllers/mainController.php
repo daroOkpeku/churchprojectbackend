@@ -60,13 +60,13 @@ class mainController extends Controller
        $answer = $this->sendimage($request->imgone);
        // $second = $this->sendimage($request->imgtwo);
        dd($answer);
-    //    $eventContent->create([
-    //     'titleevent'=>$request->titleevent,
-    //     'imgone'=>$answer,
-    //     'imgtwo'=>$answer ,
-    //     'eventdetailone'=>$request->eventdetailone,
-    //     'eventdetailtwo'=>$request->eventdetailtwo
-    //    ]);
+       $eventContent->create([
+        'titleevent'=>$request->titleevent,
+        'imgone'=>$answer,
+        'imgtwo'=>$answer ,
+        'eventdetailone'=>$request->eventdetailone,
+        'eventdetailtwo'=>$request->eventdetailtwo
+       ]);
        return response()->json(['success'=>'you have inserted an event']);
 
      }

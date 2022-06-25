@@ -59,11 +59,9 @@ class catholicMass extends Controller
     public function read($read){
     // 2022-07-02
        $test_arr  = explode('-', $read);
-       if(ctype_digit(implode(" ",$test_arr))){
-        return true;
-       }else{
-        return false;
-       }
+       $answer =  ctype_digit(implode(" ",$test_arr));
+       dd($answer);
+
     //  $newdate =  Carbon::parse($read)->format('Y-m-d');
     //    $data =  $this->mass->where(['dailydate'=>$newdate])->first();
     //    if($data){

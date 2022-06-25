@@ -57,21 +57,26 @@ class catholicMass extends Controller
     }
 
     public function read($read){
-       $answer =   preg_match("/[0-9-]/",$read);
-       dd($answer);
-     $newdate =  Carbon::parse($read)->format('Y-m-d');
-       $data =  $this->mass->where(['dailydate'=>$newdate])->first();
-       if($data){
-        return  response()->json([
-            'success'=>$data,
-            'code'=>200
-        ]);
+    // 2022-07-02
+       $test_arr  = explode('-', $read);
+       if(checkdate($test_arr[2], $test_arr[1],  $test_arr[0])){
+        return true;
        }else{
-        return response()->json([
-            'error'=>'this data does not exist',
-            'code'=>404
-        ]);
+        return false;
        }
+    //  $newdate =  Carbon::parse($read)->format('Y-m-d');
+    //    $data =  $this->mass->where(['dailydate'=>$newdate])->first();
+    //    if($data){
+    //     return  response()->json([
+    //         'success'=>$data,
+    //         'code'=>200
+    //     ]);
+    //    }else{
+    //     return response()->json([
+    //         'error'=>'this data does not exist',
+    //         'code'=>404
+    //     ]);
+    //    }
 
     }
 

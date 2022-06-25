@@ -69,14 +69,12 @@ class catholicMass extends Controller
          ]);
         }else{
          return response()->json([
-             'error'=>'this data does not exist',
-             'code'=>404
+             'error'=>'this data does not exist'
          ]);
         }
        }else{
         return response()->json([
                     'error'=>'this data does not exist',
-                    'code'=>404
                 ]);
        }
 

@@ -59,7 +59,7 @@ class catholicMass extends Controller
     public function read($read){
     // 2022-07-02
        $test_arr  = explode('-', $read);
-       $answer =  ctype_digit(implode(" ",$test_arr));
+       $answer =  ctype_digit(implode("",$test_arr));
        dd($answer);
 
     //  $newdate =  Carbon::parse($read)->format('Y-m-d');

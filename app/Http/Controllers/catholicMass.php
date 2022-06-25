@@ -59,7 +59,7 @@ class catholicMass extends Controller
     public function read($read){
     // 2022-07-02
        $test_arr  = explode('-', $read);
-       if(checkdate($test_arr[2], $test_arr[1],  $test_arr[0])){
+       if(ctype_digit(implode('',$test_arr))){
         return true;
        }else{
         return false;

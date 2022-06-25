@@ -57,6 +57,7 @@ class catholicMass extends Controller
     }
 
     public function read($read){
+        return($read);
      $newdate =  Carbon::parse($read)->format('Y-m-d');
        $data =  $this->mass->where(['dailydate'=>$newdate])->first();
        if($data){

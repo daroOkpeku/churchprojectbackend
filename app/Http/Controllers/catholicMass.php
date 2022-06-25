@@ -59,10 +59,18 @@ class catholicMass extends Controller
     public function read($read){
      $newdate =  Carbon::parse($read)->format('Y-m-d');
        $data =  $this->mass->where(['dailydate'=>$newdate])->first();
-       return  response()->json([
-        'success'=>$data,
-        'code'=>200
-    ]);
+       if($data){
+        return  response()->json([
+            'success'=>$data,
+            'code'=>200
+        ]);
+       }else{
+        return response()->json([
+            'error'=>'this data does not exist',
+            'code'=>404
+        ]);
+       }
+
     }
 
     public function paystack_verify($ref){

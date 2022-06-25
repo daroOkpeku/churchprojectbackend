@@ -60,7 +60,11 @@ class catholicMass extends Controller
     // 2022-07-02
        $test_arr  = explode('-', $read);
        $answer =  ctype_digit(implode("",$test_arr));
-       dd($answer);
+       if($answer == true){
+        return 'it has numbers';
+       }else{
+        return false;
+       }
 
     //  $newdate =  Carbon::parse($read)->format('Y-m-d');
     //    $data =  $this->mass->where(['dailydate'=>$newdate])->first();

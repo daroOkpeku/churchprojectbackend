@@ -63,7 +63,7 @@ class catholicMass extends Controller
        if($answer == true){
         return 'it has numbers';
        }else{
-        return false;
+        return 'it has strings';
        }
 
     //  $newdate =  Carbon::parse($read)->format('Y-m-d');
